@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+
+[[mods]]
+modId = "world_importer"
+version = "${version}"
+displayName = "World Importer"
+authors = "rolling_cat"
+description = '''
+Import MCA region files from client to server.
+'''
+
+[[dependencies.world_importer]]
+modId = "neoforge"
+type = "required"
+versionRange = "[20.6,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.world_importer]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.20.5,1.21)"
+ordering = "NONE"
+side = "BOTH"
+

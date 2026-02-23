@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "world_importer",
+  "version": "${version}",
+  "name": "World Importer",
+  "description": "Import MCA region files from client to server.",
+  "authors": [
+    "rolling_cat"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "cn.jstxjf_.world_importer.fabric.WorldImporterFabric"
+    ],
+    "client": [
+      "cn.jstxjf_.world_importer.fabric.WorldImporterFabricClient"
+    ],
+    "modmenu": [
+      "cn.jstxjf_.world_importer.fabric.WorldImporterModMenu"
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.2 <=1.20.4",
+    "architectury": ">=10"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

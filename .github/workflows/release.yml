@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags: [ 'v*' ]
+
+jobs:
+  release:
+    name: "Build & Release"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build 1.19-1.19.2
+        run: |
+          chmod +x versions/1.19-1.19.2/gradlew
+          ./gradlew build -Pver=1.19.2
+
+      - name: Build 1.19.3
+        run: |
+          chmod +x versions/1.19.3/gradlew
+          ./gradlew build -Pver=1.19.3
+
+      - name: Build 1.19.4
+        run: |
+          chmod +x versions/1.19.4/gradlew
+          ./gradlew build -Pver=1.19.4
+
+      - name: Build 1.20-1.20.1
+        run: |
+          chmod +x versions/1.20-1.20.1/gradlew
+          ./gradlew build -Pver=1.20.1
+
+      - name: Build 1.20.2-1.20.4
+        run: |
+          chmod +x versions/1.20.2-1.20.4/gradlew
+          ./gradlew build -Pver=1.20.4
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build 1.20.5-1.20.6
+        run: |
+          chmod +x versions/1.20.5-1.20.6/gradlew
+          ./gradlew build -Pver=1.20.6
+
+      - name: Collect jars
+        run: ./gradlew collectJars
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: World Importer ${{ github.ref_name }}
+          body: |
+            ## World Importer ${{ github.ref_name }}
+
+            | 文件 | MC 版本 | 加载器 |
+            |------|---------|--------|
+            | `*1.19.2*fabric*` | 1.19 ~ 1.19.2 | Fabric |
+            | `*1.19.2*forge*` | 1.19 ~ 1.19.2 | Forge |
+            | `*1.19.3*fabric*` | 1.19.3 | Fabric |
+            | `*1.19.3*forge*` | 1.19.3 | Forge |
+            | `*1.19.4*fabric*` | 1.19.4 | Fabric |
+            | `*1.19.4*forge*` | 1.19.4 | Forge |
+            | `*1.20.1*fabric*` | 1.20 ~ 1.20.1 | Fabric |
+            | `*1.20.1*forge*` | 1.20 ~ 1.20.1 | Forge |
+            | `*1.20.4*fabric*` | 1.20.2 ~ 1.20.4 | Fabric |
+            | `*1.20.4*forge*` | 1.20.2 ~ 1.20.4 | Forge |
+            | `*1.20.6*fabric*` | 1.20.5 ~ 1.20.6 | Fabric |
+            | `*1.20.6*neoforge*` | 1.20.5 ~ 1.20.6 | NeoForge |
+
+            需要同时安装 [Architectury API](https://github.com/architectury/architectury-api)。
+          files: build/libs/*
+          draft: false
+          prerelease: false

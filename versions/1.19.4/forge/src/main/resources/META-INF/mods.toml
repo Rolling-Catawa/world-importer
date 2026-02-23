@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT"
+
+[[mods]]
+modId = "world_importer"
+version = "${version}"
+displayName = "World Importer"
+authors = "rolling_cat"
+description = '''
+Import MCA region files from client to server.
+'''
+
+[[dependencies.world_importer]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.world_importer]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20,1.20.6]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.world_importer]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.1.12,)"
+ordering = "AFTER"
+side = "BOTH"
