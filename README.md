@@ -1,5 +1,9 @@
 # World Importer
 
+<div align="right">
+  <a href="README_en.md">English</a> | <strong>简体中文</strong>
+</div>
+
 该模组旨在将本地世界的 MCA 区域文件上传并粘贴到服务器的 Minecraft Mod。
 
 客户端解析 MCA 文件，逐区块提取 NBT 数据上传到服务端，服务端实时替换区块（方块、生物群系、方块实体），无需重启。导入完成后自动重算光照并同步给所有玩家。
