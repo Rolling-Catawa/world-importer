@@ -131,9 +131,9 @@ _vDirs.each { ver, dir ->
 //  collect artifacts
 // ========================
 
-task collectJars(dependsOn: buildAll) {
+task collectJars {
     group = 'world importer'
-    description = 'Collect all built jars into build/libs/'
+    description = 'Collect all built jars into release/'
     doLast {
         def outDir = file("release")
         outDir.mkdirs()
