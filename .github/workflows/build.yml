@@ -18,7 +18,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew
+      - run: chmod +x gradlew versions/*/gradlew
       - run: ./gradlew build -Pver=1.19.2
       - uses: actions/upload-artifact@v4
         with:
@@ -39,7 +39,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew
+      - run: chmod +x gradlew versions/*/gradlew
       - run: ./gradlew build -Pver=1.19.3
       - uses: actions/upload-artifact@v4
         with:
@@ -60,7 +60,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew
+      - run: chmod +x gradlew versions/*/gradlew
       - run: ./gradlew build -Pver=1.19.4
       - uses: actions/upload-artifact@v4
         with:
@@ -82,7 +82,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew
+      - run: chmod +x gradlew versions/*/gradlew
       - run: ./gradlew build -Pver=1.20.1
       - uses: actions/upload-artifact@v4
         with:
@@ -103,7 +103,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew
+      - run: chmod +x gradlew versions/*/gradlew
       - run: ./gradlew build -Pver=1.20.4
       - uses: actions/upload-artifact@v4
         with:
@@ -124,7 +124,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew
+      - run: chmod +x gradlew versions/*/gradlew
       - run: ./gradlew build -Pver=1.20.6
       - uses: actions/upload-artifact@v4
         with:
