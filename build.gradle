@@ -144,7 +144,8 @@ task collectJars(dependsOn: buildAll) {
                     libsDir.listFiles().findAll {
                         it.name.endsWith('.jar') && !it.name.contains('-sources') && !it.name.contains('-dev-shadow')
                     }.each { jar ->
-                        def newName = jar.name.contains(loader) ? jar.name : jar.name.replace(".jar", "-${loader}.jar")
+                        def baseName = jar.name.replace(".jar", "")
+                        def newName = "${baseName}-mc${ver}-${loader}.jar"
                         new File(outDir, newName).bytes = jar.bytes
                         println "Collected: ${newName}"
                     }
