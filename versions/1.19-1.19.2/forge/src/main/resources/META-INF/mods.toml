@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[41,)"
 license = "MIT"
 
 [[mods]]
@@ -14,20 +14,20 @@ Import MCA region files from client to server.
 [[dependencies.world_importer]]
 modId = "forge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[41,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.world_importer]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20,1.20.6]"
+versionRange = "[1.19,1.19.3)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.world_importer]]
 modId = "architectury"
 mandatory = true
-versionRange = "[9.1.12,)"
+versionRange = "[6,)"
 ordering = "AFTER"
 side = "BOTH"
