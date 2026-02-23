@@ -26,13 +26,13 @@ public class C2SUploadStartPacket {
                 }
                 ImportSession session = ImportSession.getOrCreate(player.server);
                 if (session.isImporting()) {
-                    player.sendSystemMessage(Component.literal("§c已有导入任务进行�?));
+                    player.sendSystemMessage(Component.literal("§c已有导入任务进行中"));
                     return;
                 }
                 session.setTotal(totalMCA);
                 session.setImporting(true);
                 WorldImporter.LOGGER.info("Player {} started import of {} MCA files", player.getName().getString(), totalMCA);
-                player.sendSystemMessage(Component.literal("§a开始导�?" + totalMCA + " 个MCA文件"));
+                player.sendSystemMessage(Component.literal("§a开始导入 " + totalMCA + " 个MCA文件"));
                 S2CRequestNextPacket.send(player);
             }
         });

@@ -66,7 +66,7 @@ public class RelightTask {
         active = false;
         if (player != null) {
             ImportSession session = ImportSession.getOrCreate(player.server);
-            player.sendSystemMessage(Component.literal("§a导入完成！共处理 " + session.getCompletedMCA() + " 个区�?));
+            player.sendSystemMessage(Component.literal("§a导入完成！共处理 " + session.getCompletedMCA() + " 个区块"));
             S2CImportStatusPacket.send(player, session.getCompletedMCA(), session.getTotalMCA(), "done");
             session.reset();
         }
