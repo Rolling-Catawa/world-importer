@@ -135,7 +135,7 @@ task collectJars(dependsOn: buildAll) {
     group = 'world importer'
     description = 'Collect all built jars into build/libs/'
     doLast {
-        def outDir = file("build/libs")
+        def outDir = file("release")
         outDir.mkdirs()
         _vDirs.each { ver, vdir ->
             _lMap[ver].each { loader ->
@@ -144,8 +144,9 @@ task collectJars(dependsOn: buildAll) {
                     libsDir.listFiles().findAll {
                         it.name.endsWith('.jar') && !it.name.contains('-sources') && !it.name.contains('-dev-shadow')
                     }.each { jar ->
-                        new File(outDir, jar.name).bytes = jar.bytes
-                        println "Collected: ${jar.name}"
+                        def newName = jar.name.contains(loader) ? jar.name : jar.name.replace(".jar", "-${loader}.jar")
+                        new File(outDir, newName).bytes = jar.bytes
+                        println "Collected: ${newName}"
                     }
                 }
             }

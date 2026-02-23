@@ -4,7 +4,7 @@ import cn.jstxjf_.world_importer.config.WIConfig;
 import cn.jstxjf_.world_importer.network.WINetworking;
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
-import net.minecraft.network.RegistryRegistryFriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 
 public class S2CRequestNextPacket {

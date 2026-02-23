@@ -5,7 +5,7 @@ import cn.jstxjf_.world_importer.data.ImportSession;
 import cn.jstxjf_.world_importer.network.WINetworking;
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
-import net.minecraft.network.RegistryRegistryFriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -26,13 +26,13 @@ public class C2SUploadStartPacket {
                 }
                 ImportSession session = ImportSession.getOrCreate(player.server);
                 if (session.isImporting()) {
-                    player.sendSystemMessage(Component.literal("§c已有导入任务进行中"));
+                    player.sendSystemMessage(Component.literal("§c已有导入任务进行�?));
                     return;
                 }
                 session.setTotal(totalMCA);
                 session.setImporting(true);
                 WorldImporter.LOGGER.info("Player {} started import of {} MCA files", player.getName().getString(), totalMCA);
-                player.sendSystemMessage(Component.literal("§a开始导入 " + totalMCA + " 个MCA文件"));
+                player.sendSystemMessage(Component.literal("§a开始导�?" + totalMCA + " 个MCA文件"));
                 S2CRequestNextPacket.send(player);
             }
         });
