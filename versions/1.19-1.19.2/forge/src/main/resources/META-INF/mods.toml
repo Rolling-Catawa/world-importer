@@ -7,6 +7,7 @@ modId = "world_importer"
 version = "${version}"
 displayName = "World Importer"
 authors = "rolling_cat"
+logoFile = "icon.png"
 description = '''
 Import MCA region files from client to server.
 '''
